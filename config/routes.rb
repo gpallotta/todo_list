@@ -1,4 +1,6 @@
 TodoList::Application.routes.draw do
+  get "main_pages/help"
+
   get "users/new"
 
   # The priority is based upon order of creation:
