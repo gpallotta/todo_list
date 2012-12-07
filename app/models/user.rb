@@ -15,12 +15,18 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
 
+  has_many :tasks, dependent: :destroy
+
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
   
   validates_presence_of :name, :email, :password, :password_confirmation
   validates_uniqueness_of :email, :case_sensitive => false
   validates_length_of :password, :minimum => 6
+
+  def feed
+    Task.where("user_id = ? AND done = ?", id, false)
+  end
 
   private
 
