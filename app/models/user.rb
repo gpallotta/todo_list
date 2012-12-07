@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
     Task.where("user_id = ? AND done = ?", id, false)
   end
 
+
   private
 
     def create_remember_token

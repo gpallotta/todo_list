@@ -2,8 +2,5 @@
   <%= render 'shared/error_messages', object: f.object %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <div class="field">
-    <%= f.text_area :description, placeholder: "Description..." %>
-  </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
