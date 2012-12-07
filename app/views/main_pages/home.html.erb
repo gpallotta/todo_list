@@ -1,17 +1,25 @@
-<h1>Welcome</h1>
 
 <% if signed_in? %>
-  <%= link_to 'Sign out', signout_path, method: "delete" %>
-  <section>
-    <%= render 'shared/task_form' %>
-  </section>
-  <div class="span8">
-    <h3>Tasks</h3>
-    <%= render 'shared/stats' %>
-    <%= render 'shared/feed' %>
+  <div class="container">
+    <div class="span3">
+      <ul class="nav nav-list sidebar">
+        <li class="nav-header">Navigation</li>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Profile', '#' %></li>
+      <li><%= link_to 'Sign out', signout_path, method: "delete" %></li>
+      </ul>
+    </div>
+    <div class="span8">
+      <section>
+        <%= render 'shared/task_form' %>
+      </section>
+      <div class="span8">
+        <h3>To Do List</h3>
+        <%= render 'shared/stats' %>
+        <%= render 'shared/feed' %>
+      </div>
+    </div>
   </div>
-
 <% else %>
-  <%= link_to 'Sign up', signup_path %>
-  <%= link_to 'Sign in', signin_path %>
+  <%= render 'logged_out' %>
 <% end %>

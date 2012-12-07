@@ -1,10 +1,10 @@
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+    <%= form_for(:session, url: sessions_path, :html => {:class => "user_form"}) do |f| %>
+      <%= f.label :email, class: 'user_form_text' %>
+      <%= f.text_field :email, class: 'user_form_text' %>
+      <%= f.label :password, class: 'user_form_text' %>
+      <%= f.password_field :password, class: 'user_form_text' %>
       
       <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>
