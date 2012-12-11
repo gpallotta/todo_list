@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "forms.js" %>
+<% end %>
 
 <% if signed_in? %>
   <div class="container">
@@ -17,6 +20,9 @@
       <%= render 'shared/feed' %>
     </div>
   </div>
+  <%= form_for @task do |f| %>
+    <%= f.text_field :due_date %>
+  <% end %>
 <% else %>
   <%= render 'logged_out' %>
 <% end %>
