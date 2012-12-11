@@ -9,15 +9,12 @@
       <li><%= link_to 'Sign out', signout_path, method: "delete" %></li>
       </ul>
     </div>
-    <div class="span8">
-      <section>
-        <%= render 'shared/task_form' %>
-      </section>
-      <div class="span8">
-        <h3>To Do List</h3>
-        <%= render 'shared/stats' %>
-        <%= render 'shared/feed' %>
+    <div class="span8 right-panel">
+      <div class="list-header">
+        <div class="task-form header"><%= render 'shared/task_form' %></div>
+        <div class="task-stats header"><%= current_user.feed.count %></div>
       </div>
+      <%= render 'shared/feed' %>
     </div>
   </div>
 <% else %>

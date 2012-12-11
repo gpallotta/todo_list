@@ -1,6 +1,5 @@
 <%= form_for @task do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, placeholder: 'Enter task here...' %>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
