@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="span3">
+    <ul class="nav nav-list sidebar">
+      <li class="nav-header">Navigation</li>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Profile', current_user %></li>
+      <li><%= link_to 'Sign out', signout_path, method: "delete" %></li>
+    </ul>
+  </div>
+  <div class="span8 right-panel">
+    <div class="page-header">
+      <h1><%= current_user.name %></h1>
+      <div class="float-right"><%=link_to 'Edit', edit_user_path(current_user), class: "btn btn-large btn-primary"%></div>
+    </div>
+    <ul>
+      <li><h4>Email: <%= current_user.email%></h4></li>
+      <li><h4>Completed Task Count: <%= current_user.done_tasks.count %></h4></li>
+    </ul>
+  </div>
+</div>

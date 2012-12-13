@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     Task.where("user_id = ? AND done = ?", id, false)
   end
 
+  def done_tasks
+    Task.where("user_id = ? AND done = ?", id, true)
+  end
+
 
   private
 

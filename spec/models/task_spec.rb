@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  done       :boolean          default(FALSE)
+#  due_date   :string(255)
 #
 
 require 'spec_helper'
@@ -22,6 +23,7 @@ describe Task do
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
   it { should respond_to(:done) }
+  it { should respond_to(:due_date) }
   its(:user) { should == user }
 
   it { should_not be_done }

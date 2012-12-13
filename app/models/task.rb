@@ -8,10 +8,11 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  done       :boolean          default(FALSE)
+#  due_date   :string(255)
 #
 
 class Task < ActiveRecord::Base
-  attr_accessible :title
+  attr_accessible :title, :due_date
 
   belongs_to :user
 

@@ -1,14 +1,10 @@
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "forms.js" %>
-<% end %>
-
 <% if signed_in? %>
   <div class="container">
     <div class="span3">
       <ul class="nav nav-list sidebar">
         <li class="nav-header">Navigation</li>
         <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Profile', '#' %></li>
+        <li><%= link_to 'Profile', current_user %></li>
       <li><%= link_to 'Sign out', signout_path, method: "delete" %></li>
       </ul>
     </div>
@@ -20,9 +16,6 @@
       <%= render 'shared/feed' %>
     </div>
   </div>
-  <%= form_for @task do |f| %>
-    <%= f.text_field :due_date %>
-  <% end %>
 <% else %>
   <%= render 'logged_out' %>
 <% end %>
