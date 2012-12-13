@@ -25,6 +25,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:feed) }
+  it { should respond_to(:done_tasks) }
 
   it { should be_valid }
 
@@ -105,11 +106,11 @@ describe User do
       FactoryGirl.create(:task, user: @user, created_at: 1.hour.ago)
     end
 
-    it "should have the tasks in the right order" do
+    it "has the tasks in the right order" do
       @user.tasks.should == [newer_task, older_task ]
     end
 
-    it "should destroy associated tasks" do
+    it "destroys associated tasks" do
       tasks = @user.tasks
       @user.destroy
       tasks.each do |task|

@@ -10,5 +10,11 @@ FactoryGirl.define do
   factory :task do
     title 'test title'
     user
+    done false
+
+    factory :done do
+      title 'done task'
+      done true
+    end
   end
 end
