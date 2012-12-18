@@ -1,4 +1,4 @@
-<%= form_for @task do |f| %>
+<%= form_for @task, remote: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <%= f.text_field :title, placeholder: 'Enter task here...' %>
   <%= f.text_field :due_date %>
