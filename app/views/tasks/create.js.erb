@@ -1,3 +1,7 @@
 $('#tasks').prepend('<%= escape_javascript(render(@task)) %>');
+//adds new task to page
+$('.task-stats').html('<%=current_user.tasks.count%>');
+//updates count of tasks on page
+$('task-item:first').effect("highlight", {}, 3000);
+//highlights
 $('#task-form')[0].reset();
-$('#tasks').effect('highlight', {}, 3000);

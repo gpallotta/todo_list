@@ -2,6 +2,17 @@ class TasksController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user, only: :destroy
 
+  def index
+    if signed_in?
+      @task = current_user.tasks.build if signed_in?
+      @tasks = current_user.tasks.where("user_id = ?", current_user.id)
+    end
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def create
     @task = current_user.tasks.build(params[:task])
     respond_to do |format|
@@ -9,7 +20,7 @@ class TasksController < ApplicationController
         format.js { render :layout => false }
         format.html {
           flash[:success] = "Task created!"
-          redirect_to root_path
+          redirect_to tasks_path
         }
       else
         format.html {
@@ -21,15 +32,12 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy
-    redirect_to root_path
-  end
-
-  def toggle_done
     @task = Task.find(params[:id])
-    @task.done = true
-    @task.save
-    redirect_to root_path
+    @task.destroy
+    respond_to do |format|
+      format.js { render :layout => false }
+      format.html { redirect_to(tasks_path) }
+    end
   end
 
   private

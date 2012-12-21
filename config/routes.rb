@@ -1,15 +1,7 @@
 TodoList::Application.routes.draw do
 
-  get "tasks/create"
-
-  get "tasks/destroy"
-
-  root :to => 'main_pages#home'
-
   resources :users
-  resources :tasks, only: [:create, :destroy] do
-    put 'toggle_done', :on => :member
-  end
+  resources :tasks, only: [:create, :destroy, :index]
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup', to: 'users#new'

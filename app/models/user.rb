@@ -24,14 +24,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :case_sensitive => false
   validates_length_of :password, :minimum => 6
 
-  def feed
-    Task.where("user_id = ? AND done = ?", id, false)
-  end
-
-  def done_tasks
-    Task.where("user_id = ? AND done = ?", id, true)
-  end
-
 
   private
 
