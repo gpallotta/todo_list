@@ -13,7 +13,9 @@
         <div class="task-form header"><%= render 'shared/task_form' %></div>
         <div class="task-stats header"><%= current_user.feed.count %></div>
       </div>
-      <%= render 'shared/feed' %>
+      <ul id="tasks">
+        <%= render :partial => @tasks %>
+      </ul>
     </div>
   </div>
 <% else %>

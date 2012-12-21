@@ -1,0 +1,6 @@
+<%= content_tag_for(:li, task) do %>
+  <%= link_to toggle_done_task_path(task), :method => :put do %>
+    <span class="task-item"><%= task.title %></span>
+  <% end %>
+  <%= task.due_date %> 
+<% end %>

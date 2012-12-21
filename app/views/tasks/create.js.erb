@@ -1,0 +1,3 @@
+$('#tasks').prepend('<%= escape_javascript(render(@task)) %>');
+$('#task-form')[0].reset();
+$('#tasks').effect('highlight', {}, 3000);

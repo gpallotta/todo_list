@@ -4,12 +4,19 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build(params[:task])
-    if @task.save
-      flash[:success] = "Task created!"
-      redirect_to root_path
-    else
-      @feed_items = []
-      render 'main_pages/home'
+    respond_to do |format|
+      if @task.save
+        format.js { render :layout => false }
+        format.html {
+          flash[:success] = "Task created!"
+          redirect_to root_path
+        }
+      else
+        format.html {
+          @feed_items = []
+          render 'main_pages/home'
+        }
+      end
     end
   end
 
