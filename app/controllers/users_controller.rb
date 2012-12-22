@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Account created"
-      redirect_to root_path
+      redirect_to tasks_path
     else
       render 'new'
     end

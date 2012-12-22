@@ -9,7 +9,7 @@ describe "TaskPages" do
   describe "home page" do
     let!(:task) { FactoryGirl.create(:task, user: user) }
     let!(:done_task) { FactoryGirl.create(:done, user: user) }
-    before { visit root_path }
+    before { visit tasks_path }
 
     it "displays tasks which are not done" do   
       should have_content(task.title)
