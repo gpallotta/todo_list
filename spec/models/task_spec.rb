@@ -21,11 +21,9 @@ describe Task do
   it { should respond_to(:title) }
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
-  it { should respond_to(:done) }
   it { should respond_to(:due_date) }
   its(:user) { should == user }
 
-  it { should_not be_done }
   it { should be_valid }
 
   describe "accessible attributes" do

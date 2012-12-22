@@ -8,16 +8,16 @@ describe "TaskPages" do
 
   describe "home page" do
     let!(:task) { FactoryGirl.create(:task, user: user) }
-    let!(:done_task) { FactoryGirl.create(:done, user: user) }
     before { visit tasks_path }
 
-    it "displays tasks which are not done" do   
+    it "displays tasks" do   
       should have_content(task.title)
     end
-    it "doesn't display tasks which are done" do
-      should_not have_content(done_task.title)
+
+    pending "doesn't display tasks which are deleted" do
     end
-    it "displays count of active tasks" do
+
+    it "displays count of tasks" do
       should have_selector("div.task-stats.header", text: "1")
       #hard coded because 'can't convert fixnum into string' if var used
     end
@@ -34,14 +34,11 @@ describe "TaskPages" do
         should have_selector('div.task-stats.header', text: "2")
       end
 
-      describe "then marking tasks as done" do
-        before { click_link 'spec task' }
-
-        it "removes task from the display page" do
+      describe "then deleting the task" do
+        it "deletes the task instance" do
+          expect { click_link 'spec task' }.to change(Task, :count).by(-1)
           should_not have_content("spec task")
-        end
-        it "decrements the task count on front page" do
-          should have_selector('div.task-stats.header', text: "1")
+          should have_selector('div.task-stats.header', text: '1')
         end
       end
     end
