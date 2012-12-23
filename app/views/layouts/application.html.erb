@@ -11,7 +11,9 @@
     <% flash.each do |k, v| %>
       <%= content_tag(:div, v, class: "alert-alert-#{k}") %>
     <% end %>
-    <%= render 'layouts/left_navbar' %>
+    <% if signed_in? %>
+      <%= render 'layouts/left_navbar' %>
+    <% end %>
     <%= yield %>
   </div>
 </body>

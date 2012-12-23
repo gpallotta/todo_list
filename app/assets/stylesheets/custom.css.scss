@@ -76,6 +76,11 @@ ul.nav li:hover {
   font-weight: bold;
 }
 
+.current-link {
+  font-weight: bold;
+  background-color: #C9C9C9;
+}
+
 //content pane on right
 
 .right-panel {
@@ -91,10 +96,6 @@ ul.nav li:hover {
   padding: 20px;
   display: inline-block;
   width: 550px;
-}
-
-.task-form {
-
 }
 
 .task-stats {
