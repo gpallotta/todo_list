@@ -1,6 +1,6 @@
 <%= content_tag_for(:li, task) do %>
     <%= link_to task, :method => :delete, :remote => true do %>
-      <div class="task-item">
+      <div class="task-item <%= date_class(task.due_date) %>">
         <%= task.title %><span class="right"><%= task.due_date %></span>
       </div>
     <% end %>

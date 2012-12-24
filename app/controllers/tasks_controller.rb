@@ -34,6 +34,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    #current_user.update_column(:number_done, current_user.number_done+1)
     respond_to do |format|
       format.js { render :layout => false }
       format.html { redirect_to(tasks_path) }
