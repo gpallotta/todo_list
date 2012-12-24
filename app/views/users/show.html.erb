@@ -1,8 +1,8 @@
 <div class="container">
   <div class="span8 right-panel">
     <div class="page-header">
-      <h1><%= current_user.name %></h1>
-      <div class="float-right"><%=link_to 'Edit', edit_user_path(current_user), class: "btn btn-large btn-primary"%></div>
+      <h1><%= current_user.name %>
+        <span class="edit-button"><%=link_to 'Edit', edit_user_path(current_user), class: "btn btn-large btn-primary"%></span></h1>
     </div>
     <ul>
       <li><h4>Email: <%= current_user.email%></h4></li>

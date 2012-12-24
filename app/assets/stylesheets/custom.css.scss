@@ -126,9 +126,13 @@ ul.nav li:hover {
 
 /* profile page */
 
-.float-right {
+.page-header {
+  display: inline-block;
+  width: 600px;
+}
+
+.edit-button {
   float: right;
-  overflow: auto;
 }
 
 .float-left {
