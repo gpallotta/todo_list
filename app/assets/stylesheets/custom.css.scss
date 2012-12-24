@@ -135,3 +135,21 @@ ul.nav li:hover {
   float: left;
   clear: both;
 }
+
+/* task due date classes */
+
+.no_date {
+  background-color: #C9C9C9;
+}
+
+.due_today {
+  background-color: #FFFF63;
+}
+
+.overdue {
+  background-color: #FA8E8E;
+}
+
+.due_later {
+  background-color: #8EFA92;
+}

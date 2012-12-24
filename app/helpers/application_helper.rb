@@ -6,15 +6,18 @@ module ApplicationHelper
   def date_class(date)
     if date == ""
       "no_date"
-    elsif Timeliness.parse(date) == Date.today
+    elsif Date.parse(convert_date(date)) == Date.today
       "due_today"
-    elsif Timeliness.parse(date) < Date.today
+    elsif Date.parse(convert_date(date)) < Date.today
       "overdue"
-    elsif Timeliness.parse(date)+3.days < Date.today
-      "due_soon"
     else
       "due_later"
     end
+  end
+
+  def convert_date(date)
+    parts = date.split('/')
+    "#{parts[2]}-#{parts[0]}-#{parts[1]}"
   end
 
 end
