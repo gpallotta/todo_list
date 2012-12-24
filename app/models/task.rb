@@ -17,6 +17,6 @@ class Task < ActiveRecord::Base
 
   validates_presence_of :user_id, :title
 
-  default_scope order: 'tasks.due_date ASC'
+  default_scope order: 'tasks.created_at DESC'
 
 end
