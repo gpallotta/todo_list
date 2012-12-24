@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def date_class(date)
-    if date == ""
+    if date == "" or date.nil?
       "no_date"
     elsif Date.parse(convert_date(date)) == Date.today
       "due_today"
