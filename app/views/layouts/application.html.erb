@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <% flash.each do |k, v| %>
-      <%= content_tag(:div, v, class: "alert-alert-#{k}") %>
+      <%= content_tag(:div, v, class: "alert") %>
     <% end %>
     <% if signed_in? %>
       <%= render 'layouts/left_navbar' %>
