@@ -47,4 +47,5 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find_by_id(params[:id])
     redirect_to root_url if @task.nil?
   end
+
 end

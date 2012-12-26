@@ -4,11 +4,10 @@ FactoryGirl.define do
     sequence(:email) { "user#{n}@user.com" }
     password 'foobar'
     password_confirmation 'foobar'
-
   end
 
   factory :task do
-    title 'test title'
+    sequence(:title) { |n| "title_#{n}" }
     user
   end
 end

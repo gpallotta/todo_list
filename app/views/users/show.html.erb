@@ -1,12 +1,12 @@
 <div class="container">
   <div class="span8 right-panel">
     <div class="page-header">
-      <h1><%= current_user.name %>
-        <span class="edit-button"><%=link_to 'Edit', edit_user_path(current_user), class: "btn btn-large btn-primary"%></span></h1>
+      <h1><%= @user.name %>
+        <span class="edit-button"><%=link_to 'Edit', edit_user_path(@user), class: "btn btn-large btn-primary"%></span></h1>
     </div>
     <ul>
-      <li><h4>Email: <%= current_user.email%></h4></li>
-      <li><h4>Number Completed: <%= current_user.number_done %></h4></li>
+      <li><h4>Email: <%= @user.email%></h4></li>
+      <li><h4>Number Completed: <%= @user.number_done %></h4></li>
     </ul>
   </div>
 </div>
