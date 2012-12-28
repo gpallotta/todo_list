@@ -19,6 +19,10 @@ group :test do
   gem 'factory_girl_rails'
 end
 
+group :development do
+  gem 'meta_request', '0.2.0'
+end
+
 gem 'annotate', group: :development
 
 # Gems used only for assets and not required
